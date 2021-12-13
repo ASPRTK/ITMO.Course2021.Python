@@ -7,10 +7,10 @@ print(string2)
 string3 = string1 + " " + string2
 print(string3)
 
-# Функции принимые к строке
+# Функции применимые к строке
 print("len()", len(string3)) # len() - определяет длину строки;
 print("title()", string3.title()) # title() - преобразует первый символ каждого слова в строке к верхнему регистру;
-print("lower()", string3.lower()) # lower() - символы строки преобразуются к нижнему регистру;
+print("lower()", string3.lower()) # lower() - символы строки преобразуются к нижнем регистру;
 print("upper()", string3.upper()) # upper() - символы строки преобразуются к верхнему регистру;
 print("rstrip()", string3.rstrip()) # rstrip() – удаляются пробелы в конце строки;
 print("lstrip()", string3.lstrip()) # lstrip() – удаляются пробелы в начале строки;
