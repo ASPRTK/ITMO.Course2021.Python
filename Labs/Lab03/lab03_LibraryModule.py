@@ -8,12 +8,22 @@ import statistics
 
 # 1. С помощью справочной информации изучите состав модулей math и
 # statistics.
-help(math)
-help(statistics)
+# help(math)
+# help(statistics)
 
 # 2. Напишите программу, в которой создайте список из десяти целых чисел.
+import random
 
 
+def createList():
+    mylist = []
+    for i in (range(0, 10)):
+        mylist.append(random.randint(20, 50))
+    return mylist
+
+
+mylist = createList()
+print(mylist)
 
 # 3. Затем реализуйте подсчет суммы чисел списка, среднего значения,
 # медианы (median) и стандартного отклонения (stdev), предварительно
