@@ -15,13 +15,11 @@ import statistics
 import random
 
 
-
-
 def createList():
-    mylist = []
+    myList = []
     for i in (range(0, 10)):
-        mylist.append(random.randint(20, 50))
-    return mylist
+        myList.append(random.randint(20, 50))
+    return myList
 
 
 mylist = createList()
@@ -37,3 +35,6 @@ print("Стандартное отклонение списка", statistics.std
 # 4. Реализуйте программу, в которой генерируется случайное число на
 # интервале от 1 до 100. Для генерации числа используйте функцию randint
 # модуля random.
+
+randomValue = random.randint(1, 100)
+print(randomValue)
