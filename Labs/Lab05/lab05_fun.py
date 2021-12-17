@@ -17,20 +17,32 @@ def inputPlaer():
     return igrok1, igrok2
 
 
+def result(pointsPlayer01, pointsPlayer02, igrok1, igrok2,  textVIN):
+    if pointsPlayer01 > pointsPlayer02:
+        print(textVIN, igrok1)
+    elif pointsPlayer01 < pointsPlayer02:
+        print(textVIN, igrok2)
+    else:
+        print('Ничья')
+
+
+def rollBone(igrok):
+    print('Кубик бросает', igrok)
+    time.sleep(2)
+    pointsPlayer = randint(1, 6)
+    print('Выпало:', pointsPlayer)
+    return pointsPlayer
+
+
+
 def corGames(igrok1, igrok2):
     countPlayer01 = 0
     countPlayer02 = 0
     for i in range(5):
         # Моделирование бросания кубика первым играющим
-        print('Кубик бросает', igrok1)
-        time.sleep(2)
-        n1 = randint(1, 6)
-        print('Выпало:', n1)
+        n1 = rollBone(igrok1)
         # Моделирование бросания кубика вторым играющим
-        print('Кубик бросает', igrok2)
-        time.sleep(2)
-        n2 = randint(1, 6)
-        print('Выпало:', n2)
+        n2 = rollBone(igrok2)
         # Определение результата (3 возможных варианта)
         if n1 > n2:
             print('\tВыиграл', igrok1)
@@ -43,13 +55,6 @@ def corGames(igrok1, igrok2):
         return countPlayer01, countPlayer02
 
 
-def result(countPlayer01, countPlayer02, igrok1, igrok2,  textVIN):
-    if countPlayer01 > countPlayer02:
-        print(textVIN, igrok1)
-    elif countPlayer01 < countPlayer02:
-        print(textVIN, igrok2)
-    else:
-        print('Ничья')
 
 
 
