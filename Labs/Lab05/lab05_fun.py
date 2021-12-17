@@ -17,11 +17,7 @@ def inputPlaer():
     return igrok1, igrok2
 
 
-igrok1, igrok2 = inputPlaer()
-
-
-# ЗАДАЧА 01: Добавьте в программу цикл for, реализующий 5 партий (бросков):
-def corGames():
+def corGames(igrok1, igrok2):
     countPlayer01 = 0
     countPlayer02 = 0
     for i in range(5):
@@ -47,16 +43,7 @@ def corGames():
         return countPlayer01, countPlayer02
 
 
-countPlayer01, countPlayer02 = corGames()
-# ЗАДАЧА 02:  Добавьте реализацию определения победителя. Например, с помощью
-# подсчета количества побед каждым игроком, или суммированием очков.
-# ЗАДАЧА 03:  После цикла добавьте оператор ветвления для определения итогового
-# победителя.
-
-print('Итог счета: (', igrok1, '/', igrok2, ') - ', countPlayer01, ':', countPlayer02, sep='')
-
-
-def result(countPlayer01, countPlayer02, textVIN):
+def result(countPlayer01, countPlayer02, igrok1, igrok2,  textVIN):
     if countPlayer01 > countPlayer02:
         print(textVIN, igrok1)
     elif countPlayer01 < countPlayer02:
@@ -65,4 +52,14 @@ def result(countPlayer01, countPlayer02, textVIN):
         print('Ничья')
 
 
-result(countPlayer01, countPlayer02, 'По итогу сражения одержал победу:')
+
+
+
+def main():
+    igrok1, igrok2 = inputPlaer()
+    countPlayer01, countPlayer02 = corGames(igrok1, igrok2)
+    print('Итог счета: (', igrok1, '/', igrok2, ') - ', countPlayer01, ':', countPlayer02, sep='')
+    result(countPlayer01, countPlayer02, igrok1, igrok2,  'По итогу сражения одержал победу:')
+
+
+main()
