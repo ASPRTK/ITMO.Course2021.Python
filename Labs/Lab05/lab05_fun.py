@@ -17,7 +17,7 @@ def inputPlaer():
     return igrok1, igrok2
 
 
-def result(pointsPlayer01, pointsPlayer02, igrok1, igrok2,  textVIN):
+def result(pointsPlayer01, pointsPlayer02, igrok1, igrok2, textVIN):
     if pointsPlayer01 > pointsPlayer02:
         print(textVIN, igrok1)
     elif pointsPlayer01 < pointsPlayer02:

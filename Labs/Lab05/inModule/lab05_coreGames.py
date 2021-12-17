@@ -11,10 +11,10 @@ def rollBone(igrok):
 
 
 
-def corGames(igrok1, igrok2):
+def corGames(igrok1, igrok2,countRoll):
     countPlayer01 = 0
     countPlayer02 = 0
-    for i in range(5):
+    for i in range(countRoll):
         # Моделирование бросания кубика первым играющим
         n1 = rollBone(igrok1)
         # Моделирование бросания кубика вторым играющим
