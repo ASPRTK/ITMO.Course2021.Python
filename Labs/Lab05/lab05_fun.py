@@ -57,9 +57,6 @@ def corGames(igrok1, igrok2):
 
 
 
-
-
-
 def main():
     igrok1, igrok2 = inputPlaer()
     countPlayer01, countPlayer02 = corGames(igrok1, igrok2)
