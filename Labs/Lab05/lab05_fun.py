@@ -52,7 +52,7 @@ def corGames(igrok1, igrok2):
             countPlayer02 += 1
         else:
             print('\tНичья')
-        return countPlayer01, countPlayer02
+    return countPlayer01, countPlayer02
 
 
 
