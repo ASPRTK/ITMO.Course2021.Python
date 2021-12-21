@@ -54,6 +54,8 @@ Date: 2/19/2019, modified 12/16/2021
 import math
 import logging.handlers
 
+from Labs.Lab06_MVC.lab06_AnsMvc import util
+
 
 def calculate_distance(location1, location2):
     """
@@ -88,9 +90,14 @@ def calculate_distance(location1, location2):
 
 def degree_minutes_seconds(location):
     """
+    Функция на основе георграфических координат определяет градусы
+    минуты и секунды
 
-    :param location:
-    :return:
+    :param location: (iterable): географические координаты
+    местоположения. Первый элемент итерации - широта,
+    второй - долгота.
+
+    :return: градусы минуты секунды
     """
 
     minutes, degrees = math.modf(location)
@@ -103,6 +110,15 @@ def degree_minutes_seconds(location):
 
 
 def format_location(location):
+    """
+    Функция возвращает строку с информацией о локации
+    в виде широты и долготы
+    :param location: (iterable): географические координаты
+    местоположения. Первый элемент итерации - широта,
+    второй - долгота.
+    :return:
+    Строка для отображения информации о  локации (широта и долгота точки)
+    """
     ns = ""
     if location[0] < 0:
         ns = 'S'
@@ -124,6 +140,14 @@ def format_location(location):
 
 
 def zip_by_location(codes, location):
+    """
+    Функция возвращает массив
+    :param codes: Список доступных команда
+    :param location:  географические координаты
+    местоположения. Первый элемент итерации - широта,
+    второй - долгота.
+    :return: возвращает массив  zips = []
+    """
     zips = []
     for code in codes:
         if location[0].lower() == code[3].lower() and \
@@ -133,6 +157,13 @@ def zip_by_location(codes, location):
 
 
 def location_by_zip(codes, zipcode):
+    """
+    Функция проверяет что введенная пользователем команда
+    существует и на основе ней генерирует кортеж
+    :param codes:  Список доступных команда
+    :param zipcode: Строка с введенной командой
+    :return: Возвращает кортеж tuple(code[1:])
+    """
     for code in codes:
         if code[0] == zipcode:
             return tuple(code[1:])
@@ -140,6 +171,11 @@ def location_by_zip(codes, zipcode):
 
 
 def process_loc(codes):
+    """
+    Функция для получения команды от пользователя и её выполнения
+    :param codes:  Список доступных команда
+    Отображает результат на основе введенных данных
+    """
     zipcode = input('Enter a ZIP Code to lookup => ')
     print(zipcode)
     location = location_by_zip(codes, zipcode)
@@ -152,6 +188,11 @@ def process_loc(codes):
 
 
 def process_zip(codes):
+    """
+    Функция для ввода названия города и штата
+    :param codes: Принимает список команд
+    Отображает результат на основе введенных данных
+    """
     city = input('Enter a city name to lookup => ')
     print(city)
     city = city.strip().title()
@@ -167,6 +208,11 @@ def process_zip(codes):
 
 
 def process_dist(codes):
+    """
+      Функция для ввода названия города и штата
+      :param codes: Принимает список команд
+      Отображает результат на основе введенных данных
+      """
     zip1 = input('Enter the first ZIP Code => ')
     print(zip1)
     # logging.info(f'Received the first ZIP {zip1}')
