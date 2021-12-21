@@ -18,12 +18,12 @@ zip_codes = util.read_zip_all()
 if sys.argv[1] == 'zip_by_location':
     try:
         result = zip_app.zip_by_location(zip_codes, ('trOy', 'nY'))
-        check_expected('zip_app.zip_by_location(zip_codes, ('trOy', 'nY'))',
+        check_expected('zip_app.zip_by_location(zip_codes', ('trOy', 'nY')),
                        result, ['12179', '12180', '12181', '12182', '12183'])
         result = zip_app.zip_by_location(zip_codes, ('Mechanicsburg', 'pa'))
-        check_expected('zip_app.zip_by_location(zip_codes, ('Mechanicsburg', 'pa'))',result, ['17055'])
+        check_expected('zip_app.zip_by_location(zip_codes', ('Mechanicsburg', 'pa'))',result, ['17055'])
         result = zip_app.zip_by_location(zip_codes, ('Helsinki', 'FI'))
-        check_expected('zip_app.zip_by_location(zip_codes, ('Helsinki', 'FI'))', result, [])
+        check_expected('zip_app.zip_by_location(zip_codes', ('Helsinki', 'FI'))', result, [])
     except Exception as e:
         print(e)
 elif sys.argv[1] == 'location_by_zip':

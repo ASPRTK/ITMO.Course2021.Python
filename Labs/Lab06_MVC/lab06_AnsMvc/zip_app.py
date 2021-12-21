@@ -1,10 +1,10 @@
 """
-This is a program to find location by ZIP code and ZIP code by location,
-as well as to calculate the distance between to ZIP codes.
+Это программа для определения местоположения по почтовому индексу и почтовому индексу по местоположению,
+а также для расчета расстояния между почтовыми индексами.
 
-U.S. ZIP code is a five-digit integer number.
-Location is given by the name of a city/town and a two-letter abbreviation
-of the state.
+Почтовый индекс США представляет собой пятизначное целое число.
+Местоположение указывается по названию города/населенного пункта и двухбуквенной аббревиатуре
+штата.
 
 Sample Execution:
 -----------------
@@ -50,28 +50,28 @@ Author(s): Konstantin Kuzmin
 Date: 2/19/2019, modified 12/16/2021
 """
 
-import util
+
 import math
 import logging.handlers
 
 
 def calculate_distance(location1, location2):
     """
-    This function returns the great-circle distance between location1 and
-    location2.
+    Эта функция возвращает расстояние по большому кругу между местоположением1 и
+    местоположением2.
 
-    Parameters:
-    location1 (iterable): The geographic coordinates
-    of the first location. The first element of the iterable is latitude,
-    the second one is longitude.
+    Параметры:
+    location1 (iterable): географические координаты
+    первого местоположения. Первый элемент итерации - широта,
+    второй - долгота.
 
-    location2 (iterable): The geographic coordinates
-    of the second location. The first element of the iterable is latitude,
-    the second one is longitude.
+    location2 (iterable):  географические координаты
+    второго местоположения. Первый элемент итерации - широта,
+    второй - долгота.
 
-    Returns:
-    float: Value of the distance between two locations computed using
-    the haversine formula
+    Возвращается:
+    значение с плавающей точкой: Значение расстояния между двумя точками, вычисленное с использованием
+    формулы хаверсина
     """
 
     lat1 = math.radians(location1[0])
@@ -87,6 +87,12 @@ def calculate_distance(location1, location2):
 
 
 def degree_minutes_seconds(location):
+    """
+
+    :param location:
+    :return:
+    """
+
     minutes, degrees = math.modf(location)
     degrees = int(degrees)
     minutes *= 60
