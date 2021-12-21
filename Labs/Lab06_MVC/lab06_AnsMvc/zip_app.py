@@ -87,7 +87,7 @@ def calculate_distance(location1, location2):
     distance = 2 * 3959.191 * math.asin(math.sqrt(angle))
     return distance
 
-
+"МОДЕЛЬ"
 def degree_minutes_seconds(location):
     """
     Функция на основе георграфических координат определяет градусы
@@ -108,7 +108,7 @@ def degree_minutes_seconds(location):
     seconds = 60 * seconds
     return degrees, minutes, seconds
 
-
+"МОДЕЛЬ"
 def format_location(location):
     """
     Функция возвращает строку с информацией о локации
@@ -142,7 +142,7 @@ def format_location(location):
 def zip_by_location(codes, location):
     """
     Функция возвращает массив
-    :param codes: Список доступных команда
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
     :param location:  географические координаты
     местоположения. Первый элемент итерации - широта,
     второй - долгота.
@@ -160,7 +160,7 @@ def location_by_zip(codes, zipcode):
     """
     Функция проверяет что введенная пользователем команда
     существует и на основе ней генерирует кортеж
-    :param codes:  Список доступных команда
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
     :param zipcode: Строка с введенной командой
     :return: Возвращает кортеж tuple(code[1:])
     """
@@ -176,7 +176,7 @@ def process_loc(codes):
     Функция на основе почтового индекса (ZIP Code) осуществляет
     поиск соответствующего ему города и штат
     Отображает результат в виде строки с информацией о найденном городе
-    :param codes:  Список доступных команда
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
     Отображает результат на основе введенных данных
     """
     zipcode = input('Введите почтовый индекс (ZIP Code) для поиска => ')
@@ -196,8 +196,7 @@ def process_zip(codes):
     """
     Функция осуществляет поиск почтовых индексов дя введенных города и штата
     Выводи на консоль список с почтовыми индексами (ZIP Code(s)
-    Функция для ввода названия города и штата
-    :param codes: Принимает список команд
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
     """
     city = input('Введите название города для поиска => ')
     print(city)
@@ -215,15 +214,17 @@ def process_zip(codes):
 
 def process_dist(codes):
     """
-      Функция для ввода названия города и штата
-      :param codes: Принимает список команд
-      Отображает результат на основе введенных данных
-      """
-    zip1 = input('Enter the first ZIP Code => ')
+    Функция определяет расстояние между двумя города
+    Требует ввести пользователя почтовый индекс двух точек
+    Выводи на консоль строку с расстоянием
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
+    """
+
+    zip1 = input('Введите первый почтовый индекс (ZIP Code) => ')
     print(zip1)
     # logging.info(f'Received the first ZIP {zip1}')
     logger.info(f'Received the first ZIP {zip1}')
-    zip2 = input('Enter the second ZIP Code => ')
+    zip2 = input('Введите второй почтовый индекс (ZIP Code) => ')
     print(zip2)
     # logging.info(f'Received the second ZIP {zip2}')
     logger.info(f'Received the second ZIP {zip2}')
@@ -231,11 +232,11 @@ def process_dist(codes):
     location1 = location_by_zip(codes, zip1)
     location2 = location_by_zip(codes, zip2)
     if len(location1) == 0 or len(location2) == 0:
-        print('The distance between {} and {} cannot be determined'.
+        print('Расстояние между {} и {} не может быть определено'.
               format(zip1, zip2))
     else:
         dist = calculate_distance(location1, location2)
-        print('The distance between {} and {} is {:.2f} miles'.
+        print('Расстояние между {} и {} составляет {:.2f} мили'.
               format(zip1, zip2, dist))
 
 
