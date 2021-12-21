@@ -170,41 +170,47 @@ def location_by_zip(codes, zipcode):
     return ()
 
 
+"КОНТРОЛ"
 def process_loc(codes):
     """
-    Функция для получения команды от пользователя и её выполнения
+    Функция на основе почтового индекса (ZIP Code) осуществляет
+    поиск соответствующего ему города и штат
+    Отображает результат в виде строки с информацией о найденном городе
     :param codes:  Список доступных команда
     Отображает результат на основе введенных данных
     """
-    zipcode = input('Enter a ZIP Code to lookup => ')
+    zipcode = input('Введите почтовый индекс (ZIP Code) для поиска => ')
     print(zipcode)
     location = location_by_zip(codes, zipcode)
     if len(location) > 0:
-        print('ZIP Code {} is in {}, {}, {} county,\ncoordinates: {}'.
+        'Почтовый индекс {} находится в {}, {}, округ {},'
+        print('Почтовый индекс {} находится в {}, {}, округ {},'.
               format(zipcode, location[2], location[3], location[4],
                      format_location((location[0], location[1]))))
     else:
-        print('Invalid or unknown ZIP Code')
+        print('Неверный или неизвестный почтовый индекс')
 
 
+"КОНТРОЛ"
 def process_zip(codes):
     """
+    Функция осуществляет поиск почтовых индексов дя введенных города и штата
+    Выводи на консоль список с почтовыми индексами (ZIP Code(s)
     Функция для ввода названия города и штата
     :param codes: Принимает список команд
-    Отображает результат на основе введенных данных
     """
-    city = input('Enter a city name to lookup => ')
+    city = input('Введите название города для поиска => ')
     print(city)
     city = city.strip().title()
-    state = input('Enter the state name to lookup => ')
+    state = input('Введите название штата для поиска => ')
     print(state)
     state = state.strip().upper()
     zipcodes = zip_by_location(codes, (city, state))
     if len(zipcodes) > 0:
-        print('The following ZIP Code(s) found for {}, {}: {}'.
+        print('Найдены следующие почтовые индексы (ZIP Code(s)) для {}, {}: {}'.
               format(city, state, ", ".join(zipcodes)))
     else:
-        print('No ZIP Code found for {}, {}'.format(city, state))
+        print('Почтовый индекс (ZIP Code) для {}, {} не найден!'.format(city, state))
 
 
 def process_dist(codes):
