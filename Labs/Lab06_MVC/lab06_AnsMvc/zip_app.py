@@ -56,7 +56,7 @@ import logging.handlers
 
 from Labs.Lab06_MVC.lab06_AnsMvc import util
 
-
+"МОДЕЛЬ"
 def calculate_distance(location1, location2):
     """
     Эта функция возвращает расстояние по большому кругу между местоположением1 и
@@ -155,7 +155,7 @@ def zip_by_location(codes, location):
             zips.append(code[0])
     return zips
 
-
+" ?&&&&???????"
 def location_by_zip(codes, zipcode):
     """
     Функция проверяет что введенная пользователем команда
@@ -212,6 +212,7 @@ def process_zip(codes):
         print('Почтовый индекс (ZIP Code) для {}, {} не найден!'.format(city, state))
 
 
+"КОНТРОЛ"
 def process_dist(codes):
     """
     Функция определяет расстояние между двумя города
@@ -239,7 +240,17 @@ def process_dist(codes):
         print('Расстояние между {} и {} составляет {:.2f} мили'.
               format(zip1, zip2, dist))
 
+"ВЬЮВ"
+def help_print():
+    print("Command - 'loc' - заращивает почтовы индекс, возвращает город и штат \n"
+          "Command - 'zip' - запрашивает город и штат, возвращает почтовый индекс \n,"
+          "Command - 'dist' - определяет расстояние между двумя почтовыми станциями \n,"
+          "Command - 'help' - информация о командах \n,"
+          "Command - 'end' - завершение приложение \n")
 
+
+
+"ВЬЮВ"
 if __name__ == "__main__":
     # logging.basicConfig(level=logging.DEBUG)
     rfh = logging.handlers.RotatingFileHandler(
@@ -259,7 +270,7 @@ if __name__ == "__main__":
 
     command = ""
     while command != 'end':
-        command = input("Command ('loc', 'zip', 'dist', 'end') => ")
+        command = input("Command ('loc', 'zip', 'dist', 'help', 'end') => ")
         # logging.info(f'Received command {command}')
         logger.info(f'Received command {command}')
         print(command)
@@ -270,6 +281,8 @@ if __name__ == "__main__":
             process_zip(zip_codes)
         elif command == 'dist':
             process_dist(zip_codes)
+        elif command == 'help':
+            help_print()
         elif command != 'end':
             print("Invalid command, ignoring")
         print()
