@@ -6,7 +6,7 @@
 
 import sys
 
-from Labs.Lab06_MVC.lab06_AnsMvc import zip_app, util
+from Labs.Lab06_MVC.lab06_AnsMvc import zip_app
 
 
 def check_expected(cmd, result, expected):

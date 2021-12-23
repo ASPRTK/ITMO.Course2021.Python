@@ -29,7 +29,7 @@ def read_zip_all():
     zip_data = []
     skip_line = False
     # http://notebook.gaslampmedia.com/wp-content/uploads/2013/08/zip_codes_states.csv
-    for line in open('zip_codes_states.csv').read().split("\n"):
+    for line in open('../zip_codes_states.csv').read().split("\n"):
         skip_line = False
         m = line.strip().replace('"', '').split(",")
         i += 1
