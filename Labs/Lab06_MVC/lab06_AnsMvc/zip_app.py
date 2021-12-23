@@ -139,9 +139,11 @@ def format_location(location):
     return '(' + latitude + ns + ',' + longitude + ew + ')'
 
 
+"МОДЕЛЬ"
 def zip_by_location(codes, location):
     """
-    Функция возвращает массив
+    Функция проверяет существует ли локация в списке
+    и возвращает зип коды для это локации
     :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
     :param location:  географические координаты
     местоположения. Первый элемент итерации - широта,
@@ -155,14 +157,14 @@ def zip_by_location(codes, location):
             zips.append(code[0])
     return zips
 
-" ?&&&&???????"
+" ????????"
+"МОДЕЛЬ"
 def location_by_zip(codes, zipcode):
     """
-    Функция проверяет что введенная пользователем команда
-    существует и на основе ней генерирует кортеж
+    Функция проверяет есть ли введеный пользователем код в списке почтовх индексов
     :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
-    :param zipcode: Строка с введенной командой
-    :return: Возвращает кортеж tuple(code[1:])
+    :param zipcode: Почтовый индекс ввведеный пользоваетлем
+    :return: Возвращает кортеж tuple(code[1:]) с информацие о локации с данным почтовым адреосом
     """
     for code in codes:
         if code[0] == zipcode:

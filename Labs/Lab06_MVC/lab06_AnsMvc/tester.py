@@ -1,3 +1,9 @@
+"""
+Перед запуском файла в параметрах необходимо передать zip_by_location
+
+Либо запускать через консоль и передавать zip_by_location в параметр запускаемого файла
+"""
+
 import sys
 
 from Labs.Lab06_MVC.lab06_AnsMvc import zip_app, util
