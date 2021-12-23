@@ -1,10 +1,10 @@
 """
-This is a program to find location by ZIP code and ZIP code by location,
-as well as to calculate the distance between to ZIP codes.
+Это программа для определения местоположения по почтовому индексу и почтовому индексу по местоположению,
+а также для расчета расстояния между почтовыми индексами.
 
-U.S. ZIP code is a five-digit integer number.
-Location is given by the name of a city/town and a two-letter abbreviation
-of the state.
+Почтовый индекс США представляет собой пятизначное целое число.
+Местоположение указывается по названию города/населенного пункта и двухбуквенной аббревиатуре
+штата.
 
 Sample Execution:
 -----------------
@@ -50,28 +50,30 @@ Author(s): Konstantin Kuzmin
 Date: 2/19/2019, modified 12/16/2021
 """
 
-import util
+
 import math
 import logging.handlers
 
+from Labs.Lab06_MVC.lab06_Task import util
 
+"МОДЕЛЬ"
 def calculate_distance(location1, location2):
     """
-    This function returns the great-circle distance between location1 and
-    location2.
+    Эта функция возвращает расстояние по большому кругу между местоположением1 и
+    местоположением2.
 
-    Parameters:
-    location1 (iterable): The geographic coordinates
-    of the first location. The first element of the iterable is latitude,
-    the second one is longitude.
+    Параметры:
+    location1 (iterable): географические координаты
+    первого местоположения. Первый элемент итерации - широта,
+    второй - долгота.
 
-    location2 (iterable): The geographic coordinates
-    of the second location. The first element of the iterable is latitude,
-    the second one is longitude.
+    location2 (iterable):  географические координаты
+    второго местоположения. Первый элемент итерации - широта,
+    второй - долгота.
 
-    Returns:
-    float: Value of the distance between two locations computed using
-    the haversine formula
+    Возвращается:
+    значение с плавающей точкой: Значение расстояния между двумя точками, вычисленное с использованием
+    формулы хаверсина
     """
 
     lat1 = math.radians(location1[0])
@@ -85,8 +87,19 @@ def calculate_distance(location1, location2):
     distance = 2 * 3959.191 * math.asin(math.sqrt(angle))
     return distance
 
-
+"МОДЕЛЬ"
 def degree_minutes_seconds(location):
+    """
+    Функция на основе георграфических координат определяет градусы
+    минуты и секунды
+
+    :param location: (iterable): географические координаты
+    местоположения. Первый элемент итерации - широта,
+    второй - долгота.
+
+    :return: градусы минуты секунды
+    """
+
     minutes, degrees = math.modf(location)
     degrees = int(degrees)
     minutes *= 60
@@ -95,8 +108,17 @@ def degree_minutes_seconds(location):
     seconds = 60 * seconds
     return degrees, minutes, seconds
 
-
+"МОДЕЛЬ"
 def format_location(location):
+    """
+    Функция возвращает строку с информацией о локации
+    в виде широты и долготы
+    :param location: (iterable): географические координаты
+    местоположения. Первый элемент итерации - широта,
+    второй - долгота.
+    :return:
+    Строка для отображения информации о  локации (широта и долгота точки)
+    """
     ns = ""
     if location[0] < 0:
         ns = 'S'
@@ -117,7 +139,17 @@ def format_location(location):
     return '(' + latitude + ns + ',' + longitude + ew + ')'
 
 
+"МОДЕЛЬ"
 def zip_by_location(codes, location):
+    """
+    Функция проверяет существует ли локация в списке
+    и возвращает зип коды для это локации
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
+    :param location:  географические координаты
+    местоположения. Первый элемент итерации - широта,
+    второй - долгота.
+    :return: возвращает массив  zips = []
+    """
     zips = []
     for code in codes:
         if location[0].lower() == code[3].lower() and \
@@ -125,47 +157,77 @@ def zip_by_location(codes, location):
             zips.append(code[0])
     return zips
 
-
+" ????????"
+"МОДЕЛЬ"
 def location_by_zip(codes, zipcode):
+    """
+    Функция проверяет есть ли введеный пользователем код в списке почтовх индексов
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
+    :param zipcode: Почтовый индекс ввведеный пользоваетлем
+    :return: Возвращает кортеж tuple(code[1:]) с информацие о локации с данным почтовым адреосом
+    """
     for code in codes:
         if code[0] == zipcode:
             return tuple(code[1:])
     return ()
 
 
+"КОНТРОЛ"
 def process_loc(codes):
-    zipcode = input('Enter a ZIP Code to lookup => ')
+    """
+    Функция на основе почтового индекса (ZIP Code) осуществляет
+    поиск соответствующего ему города и штат
+    Отображает результат в виде строки с информацией о найденном городе
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
+    Отображает результат на основе введенных данных
+    """
+    zipcode = input('Введите почтовый индекс (ZIP Code) для поиска => ')
     print(zipcode)
     location = location_by_zip(codes, zipcode)
     if len(location) > 0:
-        print('ZIP Code {} is in {}, {}, {} county,\ncoordinates: {}'.
+        'Почтовый индекс {} находится в {}, {}, округ {},'
+        print('Почтовый индекс {} находится в {}, {}, округ {},'.
               format(zipcode, location[2], location[3], location[4],
                      format_location((location[0], location[1]))))
     else:
-        print('Invalid or unknown ZIP Code')
+        print('Неверный или неизвестный почтовый индекс')
 
 
+"КОНТРОЛ"
 def process_zip(codes):
-    city = input('Enter a city name to lookup => ')
+    """
+    Функция осуществляет поиск почтовых индексов дя введенных города и штата
+    Выводи на консоль список с почтовыми индексами (ZIP Code(s)
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
+    """
+    city = input('Введите название города для поиска => ')
     print(city)
     city = city.strip().title()
-    state = input('Enter the state name to lookup => ')
+    state = input('Введите название штата для поиска => ')
     print(state)
     state = state.strip().upper()
     zipcodes = zip_by_location(codes, (city, state))
     if len(zipcodes) > 0:
-        print('The following ZIP Code(s) found for {}, {}: {}'.
+        print('Найдены следующие почтовые индексы (ZIP Code(s)) для {}, {}: {}'.
               format(city, state, ", ".join(zipcodes)))
     else:
-        print('No ZIP Code found for {}, {}'.format(city, state))
+        print('Почтовый индекс (ZIP Code) для {}, {} не найден!'.format(city, state))
 
 
+"КОНТРОЛ"
 def process_dist(codes):
-    zip1 = input('Enter the first ZIP Code => ')
+    """
+    Функция определяет расстояние между двумя города
+    Требует ввести пользователя почтовый индекс двух точек
+    Выводи на консоль строку с расстоянием
+    :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
+    """
+
+    zip1 = input('Введите первый почтовый индекс (ZIP Code) => ')
     print(zip1)
     # logging.info(f'Received the first ZIP {zip1}')
     logger.info(f'Received the first ZIP {zip1}')
-    zip2 = input('Enter the second ZIP Code => ')
+    zip2 = input('Введите второй почтовый индекс (ZIP Code) => ')
     print(zip2)
     # logging.info(f'Received the second ZIP {zip2}')
     logger.info(f'Received the second ZIP {zip2}')
@@ -173,14 +235,24 @@ def process_dist(codes):
     location1 = location_by_zip(codes, zip1)
     location2 = location_by_zip(codes, zip2)
     if len(location1) == 0 or len(location2) == 0:
-        print('The distance between {} and {} cannot be determined'.
+        print('Расстояние между {} и {} не может быть определено'.
               format(zip1, zip2))
     else:
         dist = calculate_distance(location1, location2)
-        print('The distance between {} and {} is {:.2f} miles'.
+        print('Расстояние между {} и {} составляет {:.2f} мили'.
               format(zip1, zip2, dist))
 
+"ВЬЮВ"
+def help_print():
+    print("Command - 'loc' - заращивает почтовы индекс, возвращает город и штат \n"
+          "Command - 'zip' - запрашивает город и штат, возвращает почтовый индекс \n,"
+          "Command - 'dist' - определяет расстояние между двумя почтовыми станциями \n,"
+          "Command - 'help' - информация о командах \n,"
+          "Command - 'end' - завершение приложение \n")
 
+
+
+"ВЬЮВ"
 if __name__ == "__main__":
     # logging.basicConfig(level=logging.DEBUG)
     rfh = logging.handlers.RotatingFileHandler(
@@ -200,7 +272,7 @@ if __name__ == "__main__":
 
     command = ""
     while command != 'end':
-        command = input("Command ('loc', 'zip', 'dist', 'end') => ")
+        command = input("Command ('loc', 'zip', 'dist', 'help', 'end') => ")
         # logging.info(f'Received command {command}')
         logger.info(f'Received command {command}')
         print(command)
@@ -211,6 +283,8 @@ if __name__ == "__main__":
             process_zip(zip_codes)
         elif command == 'dist':
             process_dist(zip_codes)
+        elif command == 'help':
+            help_print()
         elif command != 'end':
             print("Invalid command, ignoring")
         print()
