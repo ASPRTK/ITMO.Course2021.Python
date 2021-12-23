@@ -13,18 +13,18 @@ def help_print():
     Отображает информацию о командах
     :return:
     """
-    print("Command - 'loc' - заращивает почтовы индекс, возвращает город и штат \n"
-          "Command - 'zip' - запрашивает город и штат, возвращает почтовый индекс \n,"
-          "Command - 'dist' - определяет расстояние между двумя почтовыми станциями \n,"
-          "Command - 'help' - информация о командах \n,"
-          "Command - 'end' - завершение приложение \n")
+    print("Command - 'loc' - заращивает почтовы индекс, возвращает город и штат; \n"
+          "Command - 'zip' - запрашивает город и штат, возвращает почтовый индекс; \n,"
+          "Command - 'dist' - определяет расстояние между двумя почтовыми станциями; \n"
+          "Command - 'help' - информация о командах; \n"
+          "Command - 'end' - завершение приложение; \n")
 
 
 def main():
     # logging.basicConfig(level=logging.DEBUG)
-    #     ZC = classModelZipCode()
-    #     zip_codes = ZC.getZipCodes()
-    zip_codes = read_zip_all()
+    ZC = classModelZipCode()
+    zip_codes = ZC.getZipCodes()
+    # zip_codes = read_zip_all()
     command = ""
     while command != 'end':
         command = input("Command ('loc', 'zip', 'dist', 'help', 'end') => ")

@@ -12,8 +12,8 @@ class classModelZipCode(object):
     def getZipCodes(self):
         return self.zip_codes
 
-
-    def read_zip_all(self):
+    @staticmethod
+    def read_zip_all():
         """
         Читает файл, который содержит информация о почтовых индексах,
         городах и штатах из csv файла и генерирует массив zip_codes = []
@@ -21,7 +21,7 @@ class classModelZipCode(object):
         """
         i = 0
         header = []
-        self.zip_codes = []
+        zip_codes = []
         zip_data = []
         skip_line = False
         # http://notebook.gaslampmedia.com/wp-content/uploads/2013/08/zip_codes_states.csv
@@ -44,5 +44,7 @@ class classModelZipCode(object):
                         val = m[idx]
                     zip_data.append(val)
                 if not skip_line:
-                    self.zip_codes.append(zip_data)
-        return self.zip_codes.append
+                    zip_codes.append(zip_data)
+        return zip_codes
+
+
