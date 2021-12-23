@@ -5,7 +5,7 @@ from Labs.Lab06_MVC.lab06_AnsMvc.control.process_loc import process_loc
 from Labs.Lab06_MVC.lab06_AnsMvc.control.process_zip import process_zip
 from Labs.Lab06_MVC.lab06_AnsMvc.model.classLogger import myLogger
 from Labs.Lab06_MVC.lab06_AnsMvc.model.classModelZipCode import classModelZipCode
-from Labs.Lab06_MVC.lab06_AnsMvc.model.read_zip_all import read_zip_all
+
 
 
 def help_print():
@@ -23,8 +23,6 @@ def help_print():
 def main():
     # logging.basicConfig(level=logging.DEBUG)
     ZC = classModelZipCode()
-    zip_codes = ZC.getZipCodes()
-    # zip_codes = read_zip_all()
     command = ""
     while command != 'end':
         command = input("Command ('loc', 'zip', 'dist', 'help', 'end') => ")
@@ -32,11 +30,11 @@ def main():
         print(command)
         command = command.strip().lower()
         if command == 'loc':
-            print(process_loc(zip_codes))
+            print(process_loc(ZC.getZipCodes()))
         elif command == 'zip':
-            print(process_zip(zip_codes))
+            print(process_zip(ZC.getZipCodes()))
         elif command == 'dist':
-            print(process_dist(zip_codes))
+            print(process_dist(ZC.getZipCodes()))
         elif command == 'help':
             help_print()
         elif command != 'end':
