@@ -1,4 +1,7 @@
 "КОНТРОЛ"
+from Labs.Lab06_MVC.lab06_AnsMvc.model.zip_by_location import zip_by_location
+
+
 def process_zip(codes):
     """
     Функция осуществляет поиск почтовых индексов дя введенных города и штата

@@ -1,4 +1,8 @@
 "КОНТРОЛ"
+from Labs.Lab06_MVC.lab06_AnsMvc.model.format_location import format_location
+from Labs.Lab06_MVC.lab06_AnsMvc.model.location_by_zip import location_by_zip
+
+
 def process_loc(codes):
     """
     Функция на основе почтового индекса (ZIP Code) осуществляет
