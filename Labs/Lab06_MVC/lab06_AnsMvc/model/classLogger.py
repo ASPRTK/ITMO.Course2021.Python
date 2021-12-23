@@ -1,4 +1,4 @@
-import logging
+import logging.handlers
 
 
 class classLogger(object):
@@ -32,7 +32,6 @@ class classLogger(object):
 
     def info(self, str):
         self.logger.info(str)
-        self.logger.info(f'Received command {command}')
 
 
-myLogger = classLogger()
+myLogger: classLogger = classLogger()

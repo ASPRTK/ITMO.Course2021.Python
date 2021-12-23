@@ -21,7 +21,8 @@ def help_print():
 
 def main():
     # logging.basicConfig(level=logging.DEBUG)
-    zip_codes = classModelZipCode.getZipCodes()
+    ZC = classModelZipCode()
+    zip_codes = ZC.getZipCodes()
     command = ""
     while command != 'end':
         command = input("Command ('loc', 'zip', 'dist', 'help', 'end') => ")
