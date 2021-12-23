@@ -3,7 +3,7 @@
 
 from Labs.Lab06_MVC.lab06_AnsMvc.model.model_calculate_distance import model_calculate_distance
 from Labs.Lab06_MVC.lab06_AnsMvc.model.classLogger import myLogger
-from Labs.Lab06_MVC.lab06_AnsMvc.model.location_by_zip import location_by_zip
+from Labs.Lab06_MVC.lab06_AnsMvc.model.model_location_by_zip import model_location_by_zip
 
 
 def process_dist(codes):
@@ -23,8 +23,8 @@ def process_dist(codes):
     # logging.info(f'Received the second ZIP {zip2}')
     myLogger.info(f'Received the second ZIP {zip2}')
 
-    location1 = location_by_zip(codes, zip1)
-    location2 = location_by_zip(codes, zip2)
+    location1 = model_location_by_zip(codes, zip1)
+    location2 = model_location_by_zip(codes, zip2)
     if len(location1) == 0 or len(location2) == 0:
         return 'Расстояние между {} и {} не может быть определено'.format(zip1, zip2)
     else:

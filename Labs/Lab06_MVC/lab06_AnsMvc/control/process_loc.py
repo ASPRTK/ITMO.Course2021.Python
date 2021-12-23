@@ -1,6 +1,6 @@
 "КОНТРОЛ"
 from Labs.Lab06_MVC.lab06_AnsMvc.model.format_location import format_location
-from Labs.Lab06_MVC.lab06_AnsMvc.model.location_by_zip import location_by_zip
+from Labs.Lab06_MVC.lab06_AnsMvc.model.model_location_by_zip import model_location_by_zip
 
 
 def process_loc(codes):
@@ -13,7 +13,7 @@ def process_loc(codes):
     """
     zipcode = input('Введите почтовый индекс (ZIP Code) для поиска => ')
     print(zipcode)
-    location = location_by_zip(codes, zipcode)
+    location = model_location_by_zip(codes, zipcode)
     if len(location) > 0:
         'Почтовый индекс {} находится в {}, {}, округ {},'
         return ('Почтовый индекс {} находится в {}, {}, округ {},'.

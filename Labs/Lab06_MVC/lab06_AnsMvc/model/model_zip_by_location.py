@@ -1,5 +1,5 @@
 "МОДЕЛЬ"
-def zip_by_location(codes, location):
+def model_zip_by_location(codes, location):
     """
     Функция проверяет существует ли локация в списке
     и возвращает зип коды для это локации

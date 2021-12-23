@@ -1,5 +1,5 @@
 "КОНТРОЛ"
-from Labs.Lab06_MVC.lab06_AnsMvc.model.zip_by_location import zip_by_location
+from Labs.Lab06_MVC.lab06_AnsMvc.model.model_zip_by_location import model_zip_by_location
 
 
 def process_zip(codes):
@@ -16,7 +16,7 @@ def process_zip(codes):
     state = input('Введите название штата для поиска => ')
     print(state)
     state = state.strip().upper()
-    zipcodes = zip_by_location(codes, (city, state))
+    zipcodes = model_zip_by_location(codes, (city, state))
 
     if len(zipcodes) > 0:
         return ('Найдены следующие почтовые индексы (ZIP Code(s)) для {}, {}: {}'.

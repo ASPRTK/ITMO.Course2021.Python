@@ -1,6 +1,6 @@
 " ????????"
 "МОДЕЛЬ"
-def location_by_zip(codes, zipcode):
+def model_location_by_zip(codes, zipcode):
     """
     Функция проверяет есть ли введеный пользователем код в списке почтовх индексов
     :param codes: Принимает список кодов прочитаны из файла zip_codes_states.csv
