@@ -6,7 +6,8 @@
 
 import sys
 
-from Labs.Lab06_MVC.lab06_AnsMvc import zip_app
+
+from Labs.Lab06_MVC.lab06_AnsMvc.model.classModelZipCode import classModelZipCode
 
 
 def check_expected(cmd, result, expected):
@@ -18,7 +19,7 @@ def check_expected(cmd, result, expected):
               format(cmd, result, expected))
 
 
-zip_codes = util.read_zip_all()
+zip_codes = classModelZipCode.read_zip_all()
 
 
 if sys.argv[1] == 'zip_by_location':
