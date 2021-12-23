@@ -16,10 +16,10 @@ def process_loc(codes):
     location = location_by_zip(codes, zipcode)
     if len(location) > 0:
         'Почтовый индекс {} находится в {}, {}, округ {},'
-        print('Почтовый индекс {} находится в {}, {}, округ {},'.
+        return ('Почтовый индекс {} находится в {}, {}, округ {},'.
               format(zipcode, location[2], location[3], location[4],
                      format_location((location[0], location[1]))))
     else:
-        print('Неверный или неизвестный почтовый индекс')
+        return 'Неверный или неизвестный почтовый индекс'
 
 

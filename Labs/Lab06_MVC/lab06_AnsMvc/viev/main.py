@@ -32,11 +32,11 @@ def main():
         print(command)
         command = command.strip().lower()
         if command == 'loc':
-            process_loc(zip_codes)
+            print(process_loc(zip_codes))
         elif command == 'zip':
-            process_zip(zip_codes)
+            print(process_zip(zip_codes))
         elif command == 'dist':
-            process_dist(zip_codes)
+            print(process_dist(zip_codes))
         elif command == 'help':
             help_print()
         elif command != 'end':

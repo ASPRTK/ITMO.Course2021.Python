@@ -1,7 +1,7 @@
 import math
 
 "МОДЕЛЬ"
-def calculate_distance(location1, location2):
+def model_calculate_distance(location1, location2):
     """
     Эта функция возвращает расстояние по большому кругу между местоположением1 и
     местоположением2.

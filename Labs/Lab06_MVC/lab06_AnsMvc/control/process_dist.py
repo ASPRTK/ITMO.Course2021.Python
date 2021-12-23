@@ -1,7 +1,7 @@
 "КОНТРОЛ"
 
 
-from Labs.Lab06_MVC.lab06_AnsMvc.model.calculate_distance import calculate_distance
+from Labs.Lab06_MVC.lab06_AnsMvc.model.model_calculate_distance import model_calculate_distance
 from Labs.Lab06_MVC.lab06_AnsMvc.model.classLogger import myLogger
 from Labs.Lab06_MVC.lab06_AnsMvc.model.location_by_zip import location_by_zip
 
@@ -26,9 +26,7 @@ def process_dist(codes):
     location1 = location_by_zip(codes, zip1)
     location2 = location_by_zip(codes, zip2)
     if len(location1) == 0 or len(location2) == 0:
-        print('Расстояние между {} и {} не может быть определено'.
-              format(zip1, zip2))
+        return 'Расстояние между {} и {} не может быть определено'.format(zip1, zip2)
     else:
-        dist = calculate_distance(location1, location2)
-        print('Расстояние между {} и {} составляет {:.2f} мили'.
-              format(zip1, zip2, dist))
+        dist = model_calculate_distance(location1, location2)
+        return 'Расстояние между {} и {} составляет {:.2f} мили'.format(zip1, zip2, dist)
