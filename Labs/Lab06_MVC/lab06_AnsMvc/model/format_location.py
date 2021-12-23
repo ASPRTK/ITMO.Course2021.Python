@@ -1,3 +1,6 @@
+from Labs.Lab06_MVC.lab06_AnsMvc.model.degree_minutes_seconds import degree_minutes_seconds
+
+
 def format_location(location):
     """
     Функция возвращает строку с информацией о локации

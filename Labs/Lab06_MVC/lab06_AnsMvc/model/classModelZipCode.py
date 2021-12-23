@@ -7,7 +7,7 @@ class classModelZipCode(object):
     def __init__(self):
         """Constructor"""
         self.zip_codes = None
-        self.read_zip_all()
+        self.zip_codes = self.read_zip_all()
 
     def getZipCodes(self):
         return self.zip_codes
@@ -25,7 +25,7 @@ class classModelZipCode(object):
         zip_data = []
         skip_line = False
         # http://notebook.gaslampmedia.com/wp-content/uploads/2013/08/zip_codes_states.csv
-        for line in open('../DB/zip_codes_states.csv').read().split("\n"):
+        for line in open('zip_codes_states.csv').read().split("\n"):
             skip_line = False
             m = line.strip().replace('"', '').split(",")
             i += 1
@@ -45,3 +45,4 @@ class classModelZipCode(object):
                     zip_data.append(val)
                 if not skip_line:
                     self.zip_codes.append(zip_data)
+        return self.zip_codes.append

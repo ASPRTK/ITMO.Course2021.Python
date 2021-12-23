@@ -1,0 +1,23 @@
+21-12-23 21:53:15: main - INFO - Received command loc
+21-12-23 21:53:27: main - INFO - Received command zip
+21-12-23 21:53:43: main - INFO - Received command dist
+21-12-23 21:53:53: main - INFO - Received the first ZIP 00613
+21-12-23 21:53:56: main - INFO - Received the second ZIP 00614
+21-12-23 21:54:11: main - INFO - Received command 00616
+21-12-23 21:54:16: main - INFO - Received command vloc
+21-12-23 21:54:18: main - INFO - Received command loc
+21-12-23 22:02:26: main - INFO - Received command loc
+21-12-23 22:03:03: main - INFO - Received command lox
+21-12-23 22:03:05: main - INFO - Received command loc
+21-12-23 23:45:07: main - INFO - Received command loc
+21-12-23 23:47:17: main - INFO - Received command loc
+21-12-23 23:47:27: main - INFO - Received command 00617
+21-12-23 23:47:30: main - INFO - Received command loc
+21-12-23 23:49:41: main - INFO - Received command loc
+21-12-23 23:50:21: main - INFO - Received command loc
+21-12-23 23:50:35: main - INFO - Received command loc
+21-12-23 23:50:40: main - INFO - Received command zip
+21-12-23 23:51:11: main - INFO - Received command dist
+21-12-23 23:51:14: main - INFO - Received the first ZIP 00617
+21-12-23 23:51:17: main - INFO - Received the second ZIP 00623
+21-12-23 23:52:04: main - INFO - Received command help

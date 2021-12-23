@@ -1,4 +1,7 @@
 "МОДЕЛЬ"
+import math
+
+
 def degree_minutes_seconds(location):
     """
     Функция на основе георграфических координат определяет градусы
