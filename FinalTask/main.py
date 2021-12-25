@@ -1,8 +1,9 @@
-from FinalTask.model.InfoSubject import InfoSubject
+from FinalTask.model.InfoSubjectsCSV import InfoSubjectsCSV
 from FinalTask.control.createInfoSubject import createInfoSubject
 
+
 def main():
-    while(True):
+    while (True):
         print("")
         print("1-Добавить")
         print("2-Показать все")
@@ -12,13 +13,18 @@ def main():
         print("6-Удалить запись")
         print("0-Завершить работу")
 
+        infoSubjects = InfoSubjectsCSV()
+
         valueMenu = input('Введите номер меню: ')
         if valueMenu == "1":
             print("Выбрано 1-Добавить")
-            obj = createInfoSubject()
-            print(obj)
+            infoSubject = createInfoSubject()
+            infoSubjects.add(infoSubject)
+            print(infoSubject)
         elif valueMenu == "2":
             print("Выбрано 2-Показать все")
+            for iSub in infoSubjects:
+                print(iSub)
         elif valueMenu == "3":
             print("Выбрано 3-Показать по дате")
         elif valueMenu == "4":
@@ -30,5 +36,6 @@ def main():
         elif valueMenu == "0":
             break
             print("Работа приложения завершена")
+
 
 main()
