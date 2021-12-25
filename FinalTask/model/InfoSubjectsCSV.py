@@ -19,17 +19,16 @@ class InfoSubjectsCSV(object):
 
     def add(self, infoSubject):
         with open(self.__FILENAME, "a", newline="") as file:
-            user = infoSubject
             writer = csv.writer(file)
-            writer.writerow(user)
-        self.infoSubjects.add(infoSubject)
+            writer.writerow(infoSubject.getTuple())
+        self.infoSubjects.append(infoSubject)
 
     def readCSV(self):
         with open(self.__FILENAME, "r", newline="") as file:
             reader = csv.reader(file)
             for row in reader:
                 infoSubject = InfoSubject(row[0], row[1], row[2], row[3])
-                self.infoSubjects.add(infoSubject)
+                self.infoSubjects.append(infoSubject)
 
     def checkingFile(self):
         if os.path.exists(self.__FILENAME):
