@@ -20,3 +20,18 @@ def selectDate(infoSubjects):
     print(setDates)
     dateBuy = input('\nУкажите дату: ')
     show.showDateInfoSubjects(infoSubjects, dateBuy)
+
+
+def deleteNumber(infoSubjects):
+    dateBuy = input('\nВведите номер записи для удаления: ')
+    if dateBuy == "end" or dateBuy =="'end'":
+        print("Отмена удаления")
+    if not dateBuy.isdigit():
+        print("ERROR!!!! Для удаление необходимо ввести номер записи")
+        print("Для отмены введите 'end'")
+        deleteNumber(infoSubjects)
+    dateBuy = int(dateBuy)
+    print("Удаление", dateBuy, dateBuy+1)
+
+
+
