@@ -34,6 +34,10 @@ def deleteNumber(infoSubjects):
     print(infoSubjects.deleteIndex(index))
 
 
+def sortedMinMax(infoSubjects):
+
+
+    index = input('\nВыберите вид сортировки: ')
 
 
 

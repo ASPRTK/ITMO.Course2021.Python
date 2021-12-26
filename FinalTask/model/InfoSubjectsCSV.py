@@ -52,3 +52,14 @@ class InfoSubjectsCSV(object):
             writer = csv.writer(file)
             for infoSub in self.infoSubjects:
                 writer.writerow(infoSub.getTuple())
+
+    def getSorted(self):
+        copyInfoSubjects = self.infoSubjects
+        #5copyInfoSubjects.sort(key=custom_key)
+        return copyInfoSubjects
+
+
+def custom_key(InfoSubject):
+    if InfoSubject.cost:
+        return int(InfoSubject.cost)
+    return InfoSubject.cost
