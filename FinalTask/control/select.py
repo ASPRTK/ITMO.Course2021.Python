@@ -35,9 +35,19 @@ def deleteNumber(infoSubjects):
 
 
 def sortedMinMax(infoSubjects):
-
-
+    print("1-Сортировка по категории")
+    print("2-Сортировка по названиям")
+    print("3-Сортировка по ценам")
+    print("4-Сортировка по датам")
     index = input('\nВыберите вид сортировки: ')
+    if(index == '1'):
+        print("1-Сортировка по категории")
+    if (index == '2'):
+        print("22222222222222")
+    if (index == '3'):
+        print("333333333333")
+    if (index == '4'):
+        print("444444444444444")
 
 
 
