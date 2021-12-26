@@ -1,18 +1,10 @@
 from FinalTask.model.InfoSubjectsCSV import InfoSubjectsCSV
 from FinalTask.control.createInfoSubject import createInfoSubject
-
+from FinalTask.viev import show
 
 def main():
     while (True):
-        print("")
-        print("1-Добавить")
-        print("2-Показать все")
-        print("3-Показать по дате")
-        print("4-Показать по категории")
-        print("5-Показать по min->max")
-        print("6-Удалить запись")
-        print("0-Завершить работу")
-
+        show.showMenu()
         infoSubjects = InfoSubjectsCSV()
 
         valueMenu = input('Введите номер меню: ')
@@ -23,8 +15,9 @@ def main():
             print(infoSubject)
         elif valueMenu == "2":
             print("Выбрано 2-Показать все")
-            for iSub in infoSubjects.infoSubjects:
-                print(iSub)
+            show.showAllInfoSubjects(infoSubjects)
+            #for iSub in infoSubjects.infoSubjects:
+           #     print(iSub)
         elif valueMenu == "3":
             print("Выбрано 3-Показать по дате")
         elif valueMenu == "4":

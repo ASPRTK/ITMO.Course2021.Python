@@ -88,8 +88,8 @@ print("Platform: ", sys.platform)
 print("Number of modules installed: ", len(sys.modules))
 
 # Using the time module
-# Use time to show the current date and time
-# Use time to show only the current time without the date
+# Use time to show.py the current date and time
+# Use time to show.py only the current time without the date
 # Use time to pause your session for 5 seconds
 
 import time
@@ -100,9 +100,9 @@ time.sleep(5)
 print("End.")
 
 # Use the datetime module\n",
-# Use datetime to show the current date and time\n",
-# Use datetime to show only the current date without the time\n",
-# Use datetime to show the date 60 days from today\n"
+# Use datetime to show.py the current date and time\n",
+# Use datetime to show.py only the current date without the time\n",
+# Use datetime to show.py the date 60 days from today\n"
 
 import datetime
 datestring = datetime.datetime.today().strftime("%Y-%m-%d_%H:%M:%S")
