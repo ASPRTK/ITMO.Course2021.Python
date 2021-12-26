@@ -4,10 +4,9 @@ from FinalTask.viev import show
 from FinalTask.control import select
 
 def main():
+    infoSubjects = InfoSubjectsCSV()
     while (True):
         show.showMenu()
-        infoSubjects = InfoSubjectsCSV()
-
         valueMenu = input('Введите номер меню: ')
         if valueMenu == "1":
             infoSubject = createInfoSubject()
@@ -22,7 +21,6 @@ def main():
         elif valueMenu == "5":
             print("Выбрано 5-Показать по min->max")
         elif valueMenu == "6":
-            print("Выбрано 6-Удалить запись")
             select.deleteNumber(infoSubjects)
         elif valueMenu == "0":
             break
