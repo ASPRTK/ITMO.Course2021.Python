@@ -30,7 +30,7 @@ def deleteNumber(infoSubjects):
         print("ERROR!!!! Для удаление необходимо ввести номер записи")
         print("Для отмены введите 'end'")
         deleteNumber(infoSubjects)
-    index = int(index)
+    index = int(index) - 1
     print(infoSubjects.deleteIndex(index))
 
 

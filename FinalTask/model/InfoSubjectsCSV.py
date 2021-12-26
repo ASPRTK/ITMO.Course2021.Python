@@ -31,6 +31,7 @@ class InfoSubjectsCSV(object):
                 format(number, len(self.infoSubjects))
         element2 = self.infoSubjects[number]
         del self.infoSubjects[number]
+        self.resetWriteFile()
         return "Удалена следующая запись:\n{}".format(str(element2))
 
     def readCSV(self):
@@ -45,3 +46,9 @@ class InfoSubjectsCSV(object):
             self.readCSV()
         else:
             print("Файл не существует")
+
+    def resetWriteFile(self):
+        with open(self.__FILENAME, "w", newline="") as file:
+            writer = csv.writer(file)
+            for infoSub in self.infoSubjects:
+                writer.writerow(infoSub.getTuple())
