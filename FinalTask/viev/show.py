@@ -11,6 +11,7 @@ def showMenu():
     print("6-Удалить запись")
     print("0-Завершить работу")
 
+
 def hederTable(textName):
     print(textName)
     print("N\tКатегория; \t\t\tНазвание; \t\t\tЦена; \t\t\t\tДата;")
@@ -20,17 +21,16 @@ def showAllInfoSubjects(infoSubjects: InfoSubjectsCSV):
     hederTable("\n - - - - ->  Список покупок")
     count = 0
     for iSub in infoSubjects.infoSubjects:
-        count+=1
-        print(count,"\t",iSub.getStrTupleT(), sep="")
+        count += 1
+        print(count, "\t", iSub.getStrTupleT(), sep="")
+
 
 def showAllCopyList(infoSubjects):
     hederTable("\n - - - - ->  Список покупок")
     count = 0
     for iSub in infoSubjects:
-        count+=1
-        print(count,"\t",iSub.getStrTupleT(), sep="")
-
-
+        count += 1
+        print(count, "\t", iSub.getStrTupleT(), sep="")
 
 
 def showDateInfoSubjects(infoSubjects, dateBuy):
@@ -48,4 +48,4 @@ def showCategoryInfoSubjects(infoSubjects, category):
     for iSub in infoSubjects.infoSubjects:
         if iSub.category == category:
             count += 1
-            print(count,"\t", iSub.getStrTupleT(), sep="")
+            print(count, "\t", iSub.getStrTupleT(), sep="")

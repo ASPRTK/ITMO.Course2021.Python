@@ -1,4 +1,4 @@
-import select
+from FinalTask.viev import show
 
 from FinalTask.model.InfoSubject import InfoSubject
 from FinalTask.viev import show
@@ -44,17 +44,17 @@ def sortedMinMax(infoSubjects):
     print("4-Сортировка по датам")
     index = input('Выберите вид сортировки: ')
     if (index == '1'):
-        print("1-Сортировка по категории")
+        copy = sorted(infoSubjects.sortedByCategory, key=sortedByCost)
+        show.showAllCopyList(copy)
     if (index == '2'):
-        print("22222222222222")
+        copy = sorted(infoSubjects.sortedByProduct, key=sortedByCost)
+        show.showAllCopyList(copy)
     if (index == '3'):
         copy = sorted(infoSubjects.infoSubjects, key=sortedByCost)
-        for iSub in copy:
-            print("\t", iSub.getStrTupleT(), sep="")
-        print("12312312312312312312")
-        select.showAllCopyList(copy)
+        show.showAllCopyList(copy)
     if (index == '4'):
-        print("444444444444444")
+        copy = sorted(infoSubjects.sortedByData, key=sortedByCost)
+        show.showAllCopyList(copy)
 
 
 def sortedByCategory(infoSubject):
