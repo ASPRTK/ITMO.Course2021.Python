@@ -43,17 +43,20 @@ def sortedMinMax(infoSubjects):
     print("3-Сортировка по ценам")
     print("4-Сортировка по датам")
     index = input('Выберите вид сортировки: ')
-    if (index == '1'):
-        copy = sorted(infoSubjects.sortedByCategory, key=sortedByCost)
+    if index == '1':
+        copy = sorted(infoSubjects.infoSubjects, key=sortedByCategory)
         show.showAllCopyList(copy)
-    if (index == '2'):
-        copy = sorted(infoSubjects.sortedByProduct, key=sortedByCost)
+    if index == '2':
+        copy = sorted(infoSubjects.infoSubjects, key=sortedByProduct)
         show.showAllCopyList(copy)
-    if (index == '3'):
-        copy = sorted(infoSubjects.infoSubjects, key=sortedByCost)
-        show.showAllCopyList(copy)
-    if (index == '4'):
-        copy = sorted(infoSubjects.sortedByData, key=sortedByCost)
+    if index == '3':
+        try:
+            copy = sorted(infoSubjects.infoSubjects, key=sortedByCost)
+            show.showAllCopyList(copy)
+        except ValueError:
+            print("сортировка по ценам не возможна, так одна из цен не число!")
+    if index == '4':
+        copy = sorted(infoSubjects.infoSubjects, key=sortedByData)
         show.showAllCopyList(copy)
 
 
