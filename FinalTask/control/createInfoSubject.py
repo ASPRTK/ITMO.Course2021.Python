@@ -8,3 +8,7 @@ def createInfoSubject():
     cost = input('Введите цену: ')
     dateBuy = input('Введите дату: ')
     return InfoSubject(category, product, cost, dateBuy)
+
+
+
+
