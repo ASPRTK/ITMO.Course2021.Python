@@ -59,7 +59,3 @@ class InfoSubjectsCSV(object):
         return copyInfoSubjects
 
 
-def custom_key(InfoSubject):
-    if InfoSubject.cost:
-        return int(InfoSubject.cost)
-    return InfoSubject.cost

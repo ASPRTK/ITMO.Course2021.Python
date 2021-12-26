@@ -23,6 +23,15 @@ def showAllInfoSubjects(infoSubjects: InfoSubjectsCSV):
         count+=1
         print(count,"\t",iSub.getStrTupleT(), sep="")
 
+def showAllCopyList(infoSubjects):
+    hederTable("\n - - - - ->  Список покупок")
+    count = 0
+    for iSub in infoSubjects:
+        count+=1
+        print(count,"\t",iSub.getStrTupleT(), sep="")
+
+
+
 
 def showDateInfoSubjects(infoSubjects, dateBuy):
     hederTable("\n - - - - ->  Список покупок на дату: {} ".format(dateBuy))
