@@ -16,8 +16,6 @@ def main():
         elif valueMenu == "2":
             print("Выбрано 2-Показать все")
             show.showAllInfoSubjects(infoSubjects)
-            #for iSub in infoSubjects.infoSubjects:
-           #     print(iSub)
         elif valueMenu == "3":
             print("Выбрано 3-Показать по дате")
         elif valueMenu == "4":

@@ -13,6 +13,7 @@ def showMenu():
 
 
 def showAllInfoSubjects(infoSubjects: InfoSubjectsCSV):
+    print("\n - - - - ->  Список покупок")
     print("Категория; \t\t\tНазвание; \t\t\tЦена; \t\t\tДата;")
     for iSub in infoSubjects.infoSubjects:
         print(iSub.getStrTupleT())
