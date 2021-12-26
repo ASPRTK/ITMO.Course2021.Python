@@ -11,25 +11,32 @@ def showMenu():
     print("6-Удалить запись")
     print("0-Завершить работу")
 
+def hederTable(textName):
+    print(textName)
+    print("N\tКатегория; \t\t\tНазвание; \t\t\tЦена; \t\t\t\tДата;")
+
 
 def showAllInfoSubjects(infoSubjects: InfoSubjectsCSV):
-    print("\n - - - - ->  Список покупок")
-    print("Категория; \t\t\tНазвание; \t\t\tЦена; \t\t\tДата;")
+    hederTable("\n - - - - ->  Список покупок")
+    count = 0
     for iSub in infoSubjects.infoSubjects:
-        print(iSub.getStrTupleT())
+        count+=1
+        print(count,"\t",iSub.getStrTupleT(), sep="")
 
 
 def showDateInfoSubjects(infoSubjects, dateBuy):
-    print("\n - - - - ->  Список покупок на дату: {} ".format(dateBuy))
-    print("Категория; \t\t\tНазвание; \t\t\tЦена; \t\t\tДата;")
+    hederTable("\n - - - - ->  Список покупок на дату: {} ".format(dateBuy))
+    count = 0
     for iSub in infoSubjects.infoSubjects:
         if iSub.dateBuy == dateBuy:
-            print(iSub.getStrTupleT())
+            count += 1
+            print(count, "\t", iSub.getStrTupleT(), sep="")
 
 
 def showCategoryInfoSubjects(infoSubjects, category):
-    print("\n - - - - ->  Список покупок для категории: {}".format(category))
-    print("Категория; \t\t\tНазвание; \t\t\tЦена; \t\t\tДата;")
+    hederTable("\n - - - - ->  Список покупок для категории: {}".format(category))
+    count = 0
     for iSub in infoSubjects.infoSubjects:
         if iSub.category == category:
-            print(iSub.getStrTupleT())
+            count += 1
+            print(count,"\t", iSub.getStrTupleT(), sep="")

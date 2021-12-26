@@ -27,7 +27,6 @@ class InfoSubject(object):
         return string
 
     def getStrTupleT(self):
-        #string = self.category
         string = self.__formatT(self.category)
         string += self.__formatT(self.product)
         string += self.__formatT(self.cost)
