@@ -19,17 +19,17 @@ def showAllInfoSubjects(infoSubjects: InfoSubjectsCSV):
         print(iSub.getStrTupleT())
 
 
-def showDateInfoSubjects(infoSubjects: InfoSubjectsCSV, date):
-    print("\n - - - - ->  Список покупок")
+def showDateInfoSubjects(infoSubjects, dateBuy):
+    print("\n - - - - ->  Список покупок на дату: {} ".format(dateBuy))
     print("Категория; \t\t\tНазвание; \t\t\tЦена; \t\t\tДата;")
     for iSub in infoSubjects.infoSubjects:
-        if(iSub.date == date)
+        if iSub.dateBuy == dateBuy:
             print(iSub.getStrTupleT())
 
 
-def showCategoryInfoSubjects(infoSubjects: InfoSubjectsCSV, category):
-    print("\n - - - - ->  Список покупок")
+def showCategoryInfoSubjects(infoSubjects, category):
+    print("\n - - - - ->  Список покупок для категории: {}".format(category))
     print("Категория; \t\t\tНазвание; \t\t\tЦена; \t\t\tДата;")
     for iSub in infoSubjects.infoSubjects:
-        if (iSub.category == category)
+        if iSub.category == category:
             print(iSub.getStrTupleT())
