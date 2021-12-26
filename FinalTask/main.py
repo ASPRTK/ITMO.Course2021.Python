@@ -18,8 +18,10 @@ def main():
             show.showAllInfoSubjects(infoSubjects)
         elif valueMenu == "3":
             print("Выбрано 3-Показать по дате")
+            show.showDateInfoSubjects("2")
         elif valueMenu == "4":
             print("Выбрано 4-Показать по категории")
+            show.showCategoryInfoSubjects("Продукты")
         elif valueMenu == "5":
             print("Выбрано 5-Показать по min->max")
         elif valueMenu == "6":
