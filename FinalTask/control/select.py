@@ -23,15 +23,17 @@ def selectDate(infoSubjects):
 
 
 def deleteNumber(infoSubjects):
-    dateBuy = input('\nВведите номер записи для удаления: ')
-    if dateBuy == "end" or dateBuy =="'end'":
+    index = input('\nВведите номер записи для удаления: ')
+    if index == "end" or index =="'end'":
         print("Отмена удаления")
-    if not dateBuy.isdigit():
+    if not index.isdigit():
         print("ERROR!!!! Для удаление необходимо ввести номер записи")
         print("Для отмены введите 'end'")
         deleteNumber(infoSubjects)
-    dateBuy = int(dateBuy)
-    print("Удаление", dateBuy, dateBuy+1)
+    index = int(index) - 1
+    print(infoSubjects.deleteIndex(index))
+
+
 
 
 

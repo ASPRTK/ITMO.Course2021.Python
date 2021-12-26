@@ -22,6 +22,19 @@ class InfoSubjectsCSV(object):
             writer = csv.writer(file)
             writer.writerow(infoSubject.getTuple())
         self.infoSubjects.append(infoSubject)
+    def deleteIndex(self, number):
+        if number < 0:
+            return "Номер элемента должен быть положительным числом"
+        if len(self.infoSubjects) < number:
+            return "Не возможно удалить запись {}, максимальный номер в списке: {}".\
+                format(number, len(self.infoSubjects))
+        element2 = self.infoSubjects[number]
+        del self.infoSubjects
+        return "Удалена следующая запись:\n{}".format(str(element2))
+
+
+
+
 
     def readCSV(self):
         with open(self.__FILENAME, "r", newline="") as file:
