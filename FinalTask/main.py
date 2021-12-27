@@ -2,6 +2,7 @@ from FinalTask.model.InfoSubjectsCSV import InfoSubjectsCSV
 from FinalTask.control.createInfoSubject import createInfoSubject
 from FinalTask.viev import show
 from FinalTask.control import select
+from FinalTask.control import sorted
 
 def main():
     infoSubjects = InfoSubjectsCSV()
@@ -19,7 +20,7 @@ def main():
         elif valueMenu == "4":
             select.selectCategory(infoSubjects)
         elif valueMenu == "5":
-            select.sortedMinMax(infoSubjects)
+            sorted.sortedMinMax(infoSubjects)
         elif valueMenu == "6":
             select.deleteNumber(infoSubjects)
         elif valueMenu == "0":
