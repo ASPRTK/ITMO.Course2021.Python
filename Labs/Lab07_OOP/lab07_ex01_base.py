@@ -32,3 +32,29 @@ class Person(object):
 
     def get_info(self):
         return "{} {}: Возраст {};".format(self.__name, self.__surname, self.__age)
+
+class Manager(Person):
+    def __init__(self, name, surname, nameDepartment, age=0):
+        """Constructor"""
+        Person.__init__(self, name, surname, age)
+        self.__nameDepartment = nameDepartment
+    def get_nameDepartment(self):
+        return self.__nameDepartment
+
+    def get_info(self):
+        return "Менеджер отдела {} - {} {}: Возраст {};"\
+            .format(self.get_nameDepartment(), self.get_name(), self.get_surname(), self.get_age())
+
+
+def main():
+    person = Person("Арк", "Дарк", 25)
+    print(person.get_info())
+    person2 = Person("марк", "Дарк",)
+    print(person2.get_info())
+    person2.set_age(20)
+    print(person2.get_info())
+    manager = Manager("Тофу", "Мофу", "магии", 34)
+    print(manager.get_info())
+
+
+main()
