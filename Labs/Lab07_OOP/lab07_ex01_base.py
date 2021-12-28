@@ -18,6 +18,11 @@ class Person(object):
         self.__surname = surname.capitalize()
         self.__age = age
 
+    def __add__(self, other):
+        name = self.get_name() + "-" + other.get_name()
+        surname = self.get_surname() + "-" + other.get_surname()
+        return Person(name, surname)
+
     def get_age(self):
         return self.__age
     def set_age(self, value):
@@ -55,6 +60,9 @@ def main():
     print(person2.get_info())
     manager = Manager("Тофу", "Мофу", "магии", 34)
     print(manager.get_info())
+
+    personAdd = person + person2
+    print(personAdd.get_info())
 
 
 main()
