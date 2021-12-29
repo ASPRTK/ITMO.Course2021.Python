@@ -25,7 +25,7 @@ class mainWindow(object):
         self.combo_city.grid(column=1, row=0)
 
         btn = Button(self.window, text="Open in Google Maps", bg="black", fg="red", font=("Arial Bold", 10),
-                     command=self.clicked_Button())
+                     command= lambda: self.clicked_Button())
         btn.grid(column=2, row=0)
 
         self.window.mainloop()
