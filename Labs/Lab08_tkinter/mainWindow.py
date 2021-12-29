@@ -8,21 +8,10 @@ class mainWindow(object):
         self.window = Tk()
         self.window.title("Airport Locator")
         self.window.geometry('500x250')
+
         self.countries = {}
         self.geo = {}
-
-        with open('airports.json', 'r') as f_obj:
-            airports = json.load(f_obj)
-            for elem in airports:
-                if elem['country'] not in self.countries:
-                    self.countries[elem['country']] = []
-                airport = elem['city']
-                if elem['iata'] is not None and elem['iata'] != '\\N':
-                    airport += '-' + elem['iata']
-                elif elem['icao'] is not None and elem['icao'] != '\\N':
-                    airport += '-' + elem['icao']
-                self.countries[elem['country']].append(airport)
-                self.geo[airport] = {'latitude': elem['latitude'], 'longitude': elem['longitude']}
+        self.openJsonFile()
 
         self.combo_country = Combobox(self.window)
         self.combo_country['values'] = tuple(sorted(self.countries.keys()))
@@ -52,6 +41,18 @@ class mainWindow(object):
         self.combo_city.current(0)
 
     def openJsonFile(self):
+        with open('airports.json', 'r') as f_obj:
+            airports = json.load(f_obj)
+            for elem in airports:
+                if elem['country'] not in self.countries:
+                    self.countries[elem['country']] = []
+                airport = elem['city']
+                if elem['iata'] is not None and elem['iata'] != '\\N':
+                    airport += '-' + elem['iata']
+                elif elem['icao'] is not None and elem['icao'] != '\\N':
+                    airport += '-' + elem['icao']
+                self.countries[elem['country']].append(airport)
+                self.geo[airport] = {'latitude': elem['latitude'], 'longitude': elem['longitude']}
 
 
 
