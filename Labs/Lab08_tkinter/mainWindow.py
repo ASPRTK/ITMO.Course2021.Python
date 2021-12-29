@@ -4,19 +4,16 @@ import webbrowser
 import json
 
 class mainWindow(object):
-    def __init__(self, root, data):
+    def __init__(self):
         self.window = Tk()
         self.window.title("Airport Locator")
         self.window.geometry('500x250')
+        self.countries = {}
+        self.geo = {}
 
-        btn = Button(window, text="Open in Google Maps", bg="black", fg="red", font=("Arial Bold", 10),
-                     command=self.clicked_Button())
-        btn.grid(column=2, row=0)
         with open('airports.json', 'r') as f_obj:
-            self.airports = json.load(f_obj)
-            self.countries = {}
-            self.geo = {}
-            for elem in self.airports:
+            airports = json.load(f_obj)
+            for elem in airports:
                 if elem['country'] not in self.countries:
                     self.countries[elem['country']] = []
                 airport = elem['city']
@@ -37,6 +34,11 @@ class mainWindow(object):
         self.combo_city['values'] = tuple(sorted(self.countries[self.combo_country.get()]))
         self.combo_city.current(0)  # установите вариант по умолчанию
         self.combo_city.grid(column=1, row=0)
+
+        btn = Button(self.window, text="Open in Google Maps", bg="black", fg="red", font=("Arial Bold", 10),
+                     command=self.clicked_Button())
+        btn.grid(column=2, row=0)
+
         self.window.mainloop()
 
     def clicked_Button(self):
@@ -48,5 +50,8 @@ class mainWindow(object):
     def country_selected(self, event):
         self.combo_city['values'] =  tuple(sorted(self.countries[self.combo_country.get()]))
         self.combo_city.current(0)
+
+    def openJsonFile(self):
+
 
 

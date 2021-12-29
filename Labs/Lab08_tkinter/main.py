@@ -15,17 +15,12 @@
 # Использовать данные из предоставленных файлов JSON.
 # Отображение осуществляется при помощи API Google Maps в окне
 # (вкладке) браузера.
-from tkinter import *
+
+
+from Labs.Lab08_tkinter.mainWindow import mainWindow
 
 def main():
-    root = Tk()
-    root.title("Графическая программа на Python")
-    root.geometry("400x300")
-
-    root.mainloop()
-
-
-
+    mainWin = mainWindow()
 
 if __name__ == "__main__":
     main()
